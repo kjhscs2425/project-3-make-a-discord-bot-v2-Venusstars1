@@ -23,5 +23,5 @@ This function will be called every time the `should_i_respond` function returns 
 * You can have the bot respond differently to different messages and users
 """
 def respond(user_message, user_name):
-  return f"""you said my name!!
-  {user_message.replace("robot", user_name)}"""
+  return f"""Hello, you said my name. I have awoken!!
+  {user_message.replace("robot", user_message + ",what would you like assistance with?")}"""
