@@ -1,6 +1,6 @@
 # Proposal
 
-When a user says: jumble or randomize this sentence
+When a user says: jumble or randomize
 My bot will respond by: mixing up the letters in the sentence
 
 When a user says: who lives in a pineapple under the sea
@@ -29,3 +29,9 @@ My bot will respond by: dad joke
 
 When a user says: Josie
 My bot will respond by: Josie's on a vacation far away, come around and talk it over
+
+When a user says: lower
+My bot will respond by: lowercasing the sentence
+
+When a user says: any number
+My bot will respond by: returning a random number between 1 and 1 million
