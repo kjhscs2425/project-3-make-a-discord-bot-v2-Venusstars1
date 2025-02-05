@@ -19,6 +19,10 @@ def should_i_respond(user_message, user_name):
     return True
   if state == "waiting_capitalized":
     return True
+  if state == "waiting_lowercase":
+    return True
+  if "lower" in user_message or "Lower" in user_message:
+    return True
   else:
     return False
 
@@ -45,7 +49,14 @@ def respond(user_message, user_name):
   if "1,2,3,4,5,6,7,8,9" in user_message or "123456789" in user_message:
     return "It's the ten duel commandments"
   if "Josie" in user_message or "josie" in user_message:
-    return "Josie"
+    return "Josie's on a vacation far away, come around and talk it over"
+  if "lower" in user_message or "Lower" in user_message:
+    state = "waiting_lowercase"
+    return "What would you like me to lowercase?"
+  if state == "waiting_lowercase":
+    lowercase_message = user_message.lower()
+    state = "start"
+    return lowercase_message
   
 
 
