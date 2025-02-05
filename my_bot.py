@@ -23,6 +23,16 @@ def should_i_respond(user_message, user_name):
     return True
   if "lower" in user_message or "Lower" in user_message:
     return True
+  if "Knock Knock" in user_message or "knock knock" in user_message or "Knock knock" in user_message:
+    return True
+  if state == "waiting_joke":
+    return True
+  if state == "joke_response":
+    return True
+  if "riddle" in user_message or "Riddle" in user_message:
+    return True
+  if state == "waiting_riddle":
+    return True
   else:
     return False
 
@@ -47,9 +57,9 @@ def respond(user_message, user_name):
     state = "start"
     return capitalized_message
   if "1,2,3,4,5,6,7,8,9" in user_message or "123456789" in user_message:
-    return "It's the ten duel commandments"
+    return "It's the ten duel commandments!!!"
   if "Josie" in user_message or "josie" in user_message:
-    return "Josie's on a vacation far away, come around and talk it over"
+    return "Josie's on a vacation far away, come around and talk it over!"
   if "lower" in user_message or "Lower" in user_message:
     state = "waiting_lowercase"
     return "What would you like me to lowercase?"
@@ -57,7 +67,41 @@ def respond(user_message, user_name):
     lowercase_message = user_message.lower()
     state = "start"
     return lowercase_message
+  if "Knock Knock" in user_message or "knock knock" in user_message or "Knock knock" in user_message:
+    state = "waiting_joke"
+    return "Who's there?"
+  if state == "waiting_joke":
+    state = "joke_response"
+    return (user_message + """ who?
+            
+
+Wait, I do not understand the joke, please explain it to me""")
+  if state == "joke_response":
+    state = "start"
+    return "Haha, good one! You really got me with that one, keep up the funny humor! :)"
+  if "riddle" in user_message or "Riddle" in user_message:
+    state = "waiting_riddle"
+    return """Would you like a riddle? I shall give you the hardest riddle of them all, one that
+the greatest minds have pondered for generations but have not solved. However, I see the brilliant mind in front of me
+and I am confident that you will be successful in deciphering this master riddle. 
+
+The riddle is: Patricia's parents have three daughters: May, June, and what's the name of the third daughter?"""
+  if state == "waiting_riddle":
+    state = "start"
+    if user_message == "Patricia" or user_message == "patricia":
+      return "that is very very impressive, not many have been able to solve this riddle! Congrats! You are officially a mastermind"
+    if user_message == "July" or user_message == "july":
+      return """I thought you were a mastermind, but clearly I was mistaken. 
+You are as foolish as those who came before you, tricked by such a simple misdirection. 
+Try again next time and when you do, ask someone else who is wiser than you! What a foolish fool"""
+    else:
+      return "Sadly that is incorrect, but please try again next time"
   
+#Make the riddles randomized
+#make a thing that just switches out a word
+#Use random library
+#string slicing
+#for loop
 
 
 #return f"""Hello, you said my name. I have awoken!!
